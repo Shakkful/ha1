@@ -92,3 +92,20 @@ class CalculatorTest {
     //TODO hier weitere Tests erstellen
 }
 
+    // Test für bestehende Funktionalität
+    @Test
+    @DisplayName("Should rase input")
+    void testClearKey() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(6);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(7);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(8);
+        calc.pressClearKey();
+        String expected = "0";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
